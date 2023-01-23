@@ -20,6 +20,8 @@ console.log("connected to Mongo DB")
 
 
 require("./routes/movie.routes")(app);
+require("./routes/theatre.routes")(app);
+
 
 app.get("/",(req,res)=>{
     res.send("Inside Movie Booking Application");

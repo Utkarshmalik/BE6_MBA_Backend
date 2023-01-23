@@ -1,0 +1,47 @@
+{
+    name : "FunCinemas" ,
+    city : "Bangalore",
+    description : "Top class theatre" ,
+    pinCode : 560052 
+
+}
+
+{
+    name : "PVR Cinemas - Kormangala" ,
+    city : "Bangalore",
+    description : "PVR franchise theatre" ,
+    pinCode : 560095 
+
+}
+
+{
+    name : "IMax" ,
+    city : "Bangalore",
+    description : "IMax franchise theatre" ,
+    pinCode : 560095 
+
+}
+
+{
+    name : "Vaibhav Theatre" ,
+    city : "Bangalore",
+    description : "Economical theatre" ,
+    pinCode : 560094
+
+}
+
+{
+    name : "Inox" ,
+    city : "Pune",
+    description : "Top class theatre" ,
+    pinCode : 411001 
+
+}
+
+{
+    name : "Sonmarg Theatre" ,
+    city : "Pune",
+    description : "Economical theatre" ,
+    pinCode : 411042 
+
+}
