@@ -21,6 +21,7 @@ console.log("connected to Mongo DB")
 
 require("./routes/movie.routes")(app);
 require("./routes/theatre.routes")(app);
+require("./routes/auth.routes")(app);
 
 
 app.get("/",(req,res)=>{

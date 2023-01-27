@@ -1,5 +1,6 @@
 
 const Theatre = require("../models/theatre.model");
+const Movie = require("../models/movie.model");
 
 exports.createTheatre =  async (req,res)=>{
 
@@ -86,8 +87,6 @@ exports.updateTheatre = async (req,res) =>{
 exports.addMoviesToTheatre = async (req,res) => {
 
     const theatreId= req.params.theatreId;
-
-
     const savedTheatre = await Theatre.findOne({_id:theatreId});
 
     if(!savedTheatre){
@@ -96,22 +95,40 @@ exports.addMoviesToTheatre = async (req,res) => {
 
     const movieIds = req.body.movies;
 
-    if(req.body.insert===true){
-        console.log("inside insert");
+    if(req.body.insert){
     movieIds.forEach(movieId => {
         savedTheatre.movies.push(movieId);
     })}
-    else if(req.body.delete===true){
-
+    else if(req.body.delete){
         savedMovieIds = savedTheatre.movies.filter((movieId)=>{
              return !movieIds.includes(movieId.toString());
         })
     savedTheatre.movies=savedMovieIds;
     }
-
-
     const updatedTheatre = await savedTheatre.save();
     return res.status(200).send(updatedTheatre);  
+}
 
-   
+exports.checkIfMovieRunningInTheatre = async (req, res)=> {
+
+    const {theatreId, movieId} = req.params;
+
+    const savedTheatre = await Theatre.findOne({_id:theatreId});
+
+    const savedMovie = await Movie.findOne({_id:movieId});
+
+    if(!savedTheatre){
+        res.status(400).send({message:"Invalid Theatre Id"});
+    }
+
+    if(!savedMovie){
+        res.status(400).send({message:"Invalid Movie Id"});
+    }
+
+    const response = {
+        message: savedTheatre.movies.includes(savedMovie._id)?"Movie is present":"Movie is not present"
+    }
+
+    res.status(200).send(response);
+
 }

@@ -6,6 +6,21 @@ const releaseStatus={
     blocked:"BLOCKED"
 }
 
-module.exports = {
-    releaseStatus:releaseStatus
+const userTypes ={
+    customer:"CUSTOMER",
+    client:"CLIENT",
+    admin:"ADMIN"
 }
+
+const userStatus = {
+    pending:"PENDING",
+    approved:"APPROVED",
+    rejected:"REJECTED"
+}
+
+module.exports = {
+    releaseStatus:releaseStatus,
+    userTypes,
+    userStatus
+}
+
