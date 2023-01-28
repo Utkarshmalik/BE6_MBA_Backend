@@ -48,7 +48,6 @@ exports.signin = async (req,res)=>{
         return;
     }
 
-    console.log(user);
 
     if(user.userStatus!==constants.userStatus.approved){
         res.status(403).send({message:"Only Approved users are allowed to login"});
