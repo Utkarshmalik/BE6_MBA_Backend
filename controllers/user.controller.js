@@ -22,3 +22,26 @@ exports.update= async (req,res)=>{
         res.status(500).send({message:"Some internal error occured"});
     }
 }
+
+exports.updateUser = async (req,res)=>{
+
+    const userId = req.params.userId;
+    
+    try{
+        const user = await User.findOneAndUpdate({
+            userId:userId
+        },{
+            userStatus:req.body.userStatus
+        });
+
+        if(!user){
+            return res.status(400).send({message:"Invalid User Id"});
+        }
+
+        res.status(200).send({message:"User record has been updated successfully"});
+    }
+    catch(err){
+        res.status(500).send({message:"Some internal error occured"});
+    }
+
+}
