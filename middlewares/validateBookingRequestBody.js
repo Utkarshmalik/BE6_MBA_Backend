@@ -1,5 +1,5 @@
 const Theatre = require("../models/theatre.model");
-
+const Movie = require("../models/movie.model");
 
 validateBookingRequestBody = async (req,res,next) =>{
 
@@ -17,7 +17,7 @@ validateBookingRequestBody = async (req,res,next) =>{
         return res.status(400).send({message:"Failed! Movie id is not provided !"});
     }
 
-    const savedMovie= await Theatre.findOne({_id:req.body.movieId});
+    const savedMovie= await Movie.findOne({_id:req.body.movieId});
 
     if(!savedMovie){
         return res.status(400).send({message:"Failed! movie id is invalid !"});
@@ -28,7 +28,7 @@ validateBookingRequestBody = async (req,res,next) =>{
     }
 
 
-    if(!req.body.timings){
+    if(!req.body.timing){
         return res.status(400).send({message:"Failed! Timings is not provided !"});
     }
 
