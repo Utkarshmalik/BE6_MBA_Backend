@@ -25,11 +25,18 @@ const bookingStatus={
     expired:"EXPIRED"
 }
 
+const paymentStatus = {
+    pending:"PENDING",
+    success:"SUCCESS",
+    failed:"FAILED"
+}
+
 module.exports = {
     releaseStatus:releaseStatus,
     userTypes,
     userStatus,
     ticketPrice:250,
-    bookingStatus
+    bookingStatus,
+    paymentStatus
 }
 
