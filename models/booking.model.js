@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const {bookingStatus} = require("../utils/constants");
 
 const bookingSchema = new mongoose.Schema({
 
@@ -25,7 +25,7 @@ const bookingSchema = new mongoose.Schema({
     status:{
         type:String,
         required:true,
-        default:"IN-PROGRESS"
+        default:bookingStatus.inProgress
     },
     noOfSeats:{
         type:Number,

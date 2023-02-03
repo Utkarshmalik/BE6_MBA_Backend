@@ -10,5 +10,6 @@ module.exports = function(app) {
     app.get("/mba/api/v1/bookings/:id",[verifyToken],bookingController.getBookingById);
     app.get("/mba/api/v1/bookings",[verifyToken],bookingController.getAllBookings);
     app.put("/mba/api/v1/bookings/:id",[verifyToken,isAdmin],bookingController.updateBooking);
+    app.put("/mba/api/v1/bookings/:id/cancel",[verifyToken],bookingController.cancelBooking);
 
 }

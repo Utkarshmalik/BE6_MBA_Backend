@@ -18,10 +18,18 @@ const userStatus = {
     rejected:"REJECTED"
 }
 
+const bookingStatus={
+    inProgress:"IN_PROGRESS",
+    completed:"COMPLETED",
+    cancelled:"CANCELLED",
+    expired:"EXPIRED"
+}
+
 module.exports = {
     releaseStatus:releaseStatus,
     userTypes,
     userStatus,
-    ticketPrice:250
+    ticketPrice:250,
+    bookingStatus
 }
 

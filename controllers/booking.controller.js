@@ -72,3 +72,35 @@ exports.updateBooking = async (req,res)=>{
     }}
 
 }
+
+exports.cancelBooking = async (req,res)=>{
+
+    const savedBooking = await Booking.findOne({
+        _id:req.params.id
+    });
+
+    const savedUser = await User.findOne({
+        userId:req.userId
+    });
+
+
+    if(!savedBooking){
+        return res.status(400).send("Invalid Booking Id");
+    }
+
+
+    if(!savedBooking.userId.equals(savedUser._id)){
+        return res.status(403).send("User has insufficient permissions to cancel this booking");
+    }
+
+    savedBooking.status=constants.bookingStatus.cancelled;
+    
+
+    try{
+        const updatedBooking = await savedBooking.save();
+        res.status(201).send(updatedBooking);
+    }
+    catch(err){{
+        res.status(500).send({message:"Internal Error while updating the booking "+e.message});
+    }}
+}
