@@ -21,6 +21,7 @@ const userStatus = {
 module.exports = {
     releaseStatus:releaseStatus,
     userTypes,
-    userStatus
+    userStatus,
+    ticketPrice:250
 }
 

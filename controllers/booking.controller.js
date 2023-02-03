@@ -1,5 +1,6 @@
 const Booking = require("../models/booking.model");
 const User = require("../models/user.model");
+const constants = require("../utils/constants");
 
 exports.createBooking = async (req,res)=>{
 
@@ -41,4 +42,33 @@ exports.getAllBookings = async (req,res)=>{
 
     const bookings = await Booking.find({});
     res.status(200).send(bookings);
+}
+
+exports.updateBooking = async (req,res)=>{
+
+
+    const savedBooking = await Booking.findOne({
+        _id:req.params.id
+    });
+
+    if(!savedBooking){
+        return res.status(400).send("Invalid Booking Id");
+    }
+
+    savedBooking.theatreId = req.body.theatreId ? req.body.theatreId : savedBooking.theatreId;
+    savedBooking.movieId = req.body.movieId ? req.body.movieId : savedBooking.movieId;
+    savedBooking.userId = req.body.userId ? req.body.userId : savedBooking.userId;
+    savedBooking.timing = req.body.timing ? req.body.timing : savedBooking.timing;
+    savedBooking.noOfSeats = req.body.noOfSeats ? req.body.noOfSeats : savedBooking.noOfSeats;
+    savedBooking.totalCost = savedBooking.noOfSeats * constants.ticketPrice;
+    savedBooking.status = req.body.status ? req.body.status : savedBooking.status;
+
+    try{
+        const updatedBooking = await savedBooking.save();
+        res.status(201).send(updatedBooking);
+    }
+    catch(err){{
+        res.status(500).send({message:"Internal Error while updating the booking "+e.message});
+    }}
+
 }
