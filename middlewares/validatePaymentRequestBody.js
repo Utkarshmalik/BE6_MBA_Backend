@@ -11,7 +11,7 @@ validatePaymentRequestBody = async (req,res,next) =>{
         return res.status(400).send({message:"Failed! bookingId not provided"});
     }
 
-    if(ObjectId.isValid(req.body.bookingId)){
+    if(!ObjectId.isValid(req.body.bookingId)){
         return res.status(400).send({message:"Failed! bookingId not in valid format"});
     }
 

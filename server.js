@@ -28,6 +28,7 @@ require("./routes/theatre.routes")(app);
 require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
 require("./routes/booking.routes")(app);
+require("./routes/payment.routes")(app);
 
 
 app.get("/",(req,res)=>{

@@ -22,7 +22,8 @@ const bookingStatus={
     inProgress:"IN_PROGRESS",
     completed:"COMPLETED",
     cancelled:"CANCELLED",
-    expired:"EXPIRED"
+    expired:"EXPIRED",
+    failed:"FAILED"
 }
 
 const paymentStatus = {
