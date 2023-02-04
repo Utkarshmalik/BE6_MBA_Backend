@@ -77,3 +77,28 @@ exports.getAllPayments = async (req,res)=>{
 
     return res.status(200).send(payments);
 }
+
+exports.getPaymentById = async (req,res)=>{
+
+    const paymentId = req.params.id;
+
+    const savedUser = await User.findOne({userId:req.userId});
+    const savedPayment = await Payment.findOne({_id:paymentId});
+
+    if(!savedPayment){
+        return res.status(400).send({message:"Invalid Payment Id"});
+    }
+
+    if(savedUser.userTypes===constants.userTypes.admin){
+    }else{
+
+        const bookingId = savedPayment.bookingId;
+        const savedBooking = await Booking.findOne({_id:bookingId});
+        const userId = savedBooking.userId;
+
+        if(!userId.equals(savedUser._id)){
+            return res.status(403).send({message:"Forbidden, paymentId is not associated with the loggedin user"});
+        }
+    }
+    return res.status(200).send(savedPayment);
+}
