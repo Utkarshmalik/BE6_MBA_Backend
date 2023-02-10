@@ -9,7 +9,6 @@ const serverConfig = require("./configs/server.config");
 const dbConfig = require("./configs/db.config");
 const constants = require("./utils/constants");
 
-
 const app = express();
 
 app.use(bodyParser.json());
@@ -21,6 +20,9 @@ init();
 },err=>{
     console.log("Error: ",err.message)
 })
+
+ 
+ 
 
 
 require("./routes/movie.routes")(app);
