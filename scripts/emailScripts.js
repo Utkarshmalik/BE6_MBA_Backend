@@ -19,7 +19,26 @@ const userRegistration = (user) => {
     }
 }
 
+const userLoggedIn = (user) =>{
+
+}
+
+const paymentSucces =(user)=>{
+
+}
+
+const newMovieAdded = (user,movie,theatre)=>{
+
+}
+
+const theatreDeleted = (user,theatre)=>{
+
+}
 
 module.exports = {
-    userRegistration
+    userRegistration,
+    userLoggedIn,
+    paymentSucces,
+    newMovieAdded,
+    theatreDeleted
 }
