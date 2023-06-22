@@ -41,8 +41,8 @@ app.get("/",(req,res)=>{
 })
 
 
-app.listen(serverConfig.PORT,()=>{
-    console.log(`Application running on port ${serverConfig.PORT}`);
+app.listen(8000,()=>{
+    console.log(`Application running on port 8000`);
 })
 
 

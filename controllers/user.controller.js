@@ -45,3 +45,16 @@ exports.updateUser = async (req,res)=>{
     }
 
 }
+
+exports.getAllUsers =  async (req,res)=>{
+    
+    try{
+        const users= await User.find({});
+        res.send(users);
+      
+    }
+    catch(err){
+        res.status(500).send({message:"Some internal error occured"});
+    }
+
+}
