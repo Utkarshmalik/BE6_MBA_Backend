@@ -17,8 +17,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-mongoose.connect(dbConfig.DB_URL, ()=>{
-console.log("connected to Mongo DB")
+ mongoose.connect(dbConfig.DB_URL, ()=>{
+    console.log("connected to Mongo DB")
 init();
 },err=>{
     console.log("Error: ",err.message)
@@ -47,7 +47,6 @@ app.listen(8000,()=>{
 
 
 async function init(){
-
     try{
         const user = await User.create({
             name:"admin",
@@ -62,5 +61,4 @@ async function init(){
     }catch(e){
         console.log(e.message);
     }
-
 }

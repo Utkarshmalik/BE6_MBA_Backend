@@ -40,7 +40,10 @@ exports.getBookingById = async (req,res)=>{
 
 exports.getAllBookings = async (req,res)=>{
 
-    const bookings = await Booking.find({});
+    const bookings = await Booking.find({}).populate("movieId").populate("theatreId").populate("userId");
+
+    
+
     res.status(200).send(bookings);
 }
 

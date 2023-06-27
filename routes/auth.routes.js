@@ -5,5 +5,4 @@ const {validateUserRequestBody} = require("../middlewares/validateUserRequestBod
 module.exports = function(app){
     app.post("/mba/api/v1/auth/signup", [validateUserRequestBody], authControllers.signup);
     app.post("/mba/api/v1/auth/signin", authControllers.signin);
-
 }
