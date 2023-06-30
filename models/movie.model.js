@@ -39,6 +39,13 @@ const movieSchema = new mongoose.Schema({
         type:String,
         required:true,
         default:constants.releaseStatus.released
+    },
+    occupiedSeats:{
+        type:Array,
+        required:false
+    },
+    price:{
+        type:Number
     }
 });
 

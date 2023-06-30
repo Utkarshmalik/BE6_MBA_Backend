@@ -25,6 +25,9 @@ exports.getMovie = async (req,res)=>{
         _id:req.params.id
     });
 
+    movie.occupiedSeats = [1,5,7,9,10,13,21,56,44,33,60];
+    movie.price = Math.floor(Math.random() * (2000 - 500) + 500);
+
     res.status(200).send(movie);
 }
 

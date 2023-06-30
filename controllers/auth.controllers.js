@@ -75,7 +75,8 @@ exports.signin = async (req,res)=>{
         email:user.email,
         userTypes:user.userTypes,
         userStatus:user.userStatus,
-        accessToken:token
+        accessToken:token,
+        _id:user._id
     })
 
 }
